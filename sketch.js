@@ -32,7 +32,7 @@ function draw() {
 }
 
 function mousePressed() {
-  backgroun(random(200, 255));
+  background(random(200, 255));
 
   randomIndex = int(random(dragons.length));
   text(dragons[randomIndex].name, 50, 50);
