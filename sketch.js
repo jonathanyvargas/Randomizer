@@ -1,67 +1,65 @@
 // dragons I really like
 let dragons = [{
   name: "blue-eyes",
-  color: "white"
+  action: "is summoned"
 }, {
   name: "red-eyes",
-  color: "black"
+  action: "deals 9,000 damage"
 }, {
   name: "deathwing",
-  color: "black"
+  action: "shatters the earth"
 }, {
   name: "bahamut",
-  color: "black"
+  action: "descends"
 }, {
   name: "shenron",
-  color: "green"
+  action: "tears the sky"
 }, {
   name: "rayquaza",
-  color: "green"
+  action: "calls for back up"
 }];
 
 let randomIndex;
-let counter = 0;
+let animating = false;
+
 
 function setup() {
   createCanvas(400, 400);
   background(220);
   textSize(34);
 
-  text("click to randomize", 50, 50);
-
-  setTimeout(changeBackground, 1000);
-
+  text("click to play", 50, 50);
 }
 
 function draw() {
 
-}
-
-function changeBackground() {
-  if (counter <= 5) {
-    counter++;
-    console.log(counter)
-  background(random(255), (random(255), (random(255))
-  setTimeout(changeBackground, 1000);
-  } else {
-
+  if(animating == true) {
+    ellipse(random(width), random(height), random(50, 200));
   }
 
 }
 
-function mousePressed() {
+function randomizer() {
 
+  animating = false;
   if (dragons[0]) {
 
   background(random(200, 255));
 
   randomIndex = int(random(dragons.length));
-  text(dragons[randomIndex].name, 50, 50);
+  text(`${dragons[randomIndex].name}
+   ${dragons[randomIndex].action}`, 50, 50);
   dragons.splice(randomIndex,1);
   } else {
   background(random(200, 255));
   text("GAME OVER", 50, 50);
 }
 
+
+}
+
+function mousePressed() {
+animating = true;
+setTimeout(randomizer, 2000);
 
 }
