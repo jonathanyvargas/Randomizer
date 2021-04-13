@@ -28,7 +28,7 @@ let button;
 function preload(){
 
  for (let i = 0; i <= 5; i++){
-  dragonDrawings[i] = loadImage(`assets/drawing_${i}.PNG`)
+  dragonDrawings[i] = loadImage(`assets/drawing_${i}.png`)
 
  }
 
